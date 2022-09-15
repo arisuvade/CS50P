@@ -6,7 +6,7 @@ if greeting == "hello":
     print("$0")
 elif greeting >= forbidden_greeting:
     print("$0")
-elif greeting >= forbidden_letter:
+elif greeting[0] >= forbidden_letter:
     print("$20")
 else:
     print("$100")
