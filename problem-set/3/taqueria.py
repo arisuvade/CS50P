@@ -20,7 +20,7 @@ def food_cost():
     while True:
         try:
             item = input("Item: ").title()
-        except EOFError:
+        except KeyboardInterrupt:
             print()
             break
         if item in menu:
