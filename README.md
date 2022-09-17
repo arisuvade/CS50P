@@ -36,8 +36,6 @@ https://cs50.harvard.edu/python/2022/psets/1/meal/
 
 Problem Set 2
 
-Problem Set 2
-
 camelCase
 https://cs50.harvard.edu/python/2022/psets/2/camel/
 
