@@ -1,28 +1,54 @@
 def main():
+    fraction = input("Fraction: ")
+    convertion = convert(fraction)
+    percent = gauge(convertion)
+    print(percent)
+
+
+def convert(fraction):
     while True:
-        try:
-            user = input("Fraction: ")
-            first, second = user.split("/")
-            fuel = convert(first, second)
-            if fuel != None:
-                print(fuel)
-                break
-        except (ValueError, ZeroDivisionError):
+        if len(fraction) != 3 or fraction[1] != "/":
+            fraction = input("Fraction: ")
+            continue
+        else:
             pass
 
+        try:
+            if fraction[0].isdigit() and fraction[2].isdigit():
+                pass
+            else:
+                fraction = input("Fraction: ")
+                continue
+        except ValueError:
+            continue
 
-def convert(x, y):
-    if x == "1":
-        if y == "4":
-            return "25%"
-        elif y == "2":
-            return "50%"
-    elif x == "3" and y == "4":
-        return "75%"
-    elif x and y == "4":
+        numerator, denominator = fraction.split("/")
+        x = int(numerator)
+        y = int(denominator)
+
+        try:
+            quotient = x / y
+            result = quotient * 100
+        except ZeroDivisionError:
+            fraction = input("Fraction: ")
+            continue
+
+        if x > y:
+            fraction = input("Fraction: ")
+            continue
+        else:
+            pass
+
+        return result
+
+
+def gauge(percentage):
+    if percentage > 99:
         return "F"
-    elif x == "0" and y == "1":
+    elif percentage <= 0:
         return "E"
+    else:
+        return f"{percentage:.0f}%"
 
 
 if __name__ == "__main__":
