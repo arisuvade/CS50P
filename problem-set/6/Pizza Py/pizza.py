@@ -21,14 +21,13 @@ def arg_validator():
 
 
 def menu_validator(m):
-    while True:
-        try:
-            with open(m) as file:
-                reader = csv.DictReader(file)
-                return (tabulate.tabulate
+    try:
+        with open(m) as file:
+            reader = csv.DictReader(file)
+            return (tabulate.tabulate
                         (reader, headers="keys", tablefmt="grid"))
-        except FileNotFoundError:
-            sys.exit("File not found")
+    except FileNotFoundError:
+        sys.exit("File not found")
 
 
 if __name__ == "__main__":
